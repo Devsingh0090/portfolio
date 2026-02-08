@@ -1,23 +1,8 @@
 {
-  "version": 2,
-
-  "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" },
-    { "src": "public/**", "use": "@vercel/static" }
-  ],
-
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/send-email$",
-      "dest": "/api/send-email"
-    },
-    {
-      "src": "^/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "^/(.*)",
-      "dest": "/public/$1"
+      "source": "/send-email",
+      "destination": "/api/send-email"
     }
   ]
 }
