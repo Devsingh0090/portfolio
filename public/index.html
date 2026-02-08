@@ -443,16 +443,19 @@
             display: flex;
             flex-direction: row;
             /* Ensure elements are in a row */
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            /* Prevent wrapping on desktop */
             gap: 4rem;
             padding: 3rem;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            /* Changed from hidden to show shadows */
             width: 100%;
-            /* Ensure full width usage */
+            align-items: flex-start;
+            /* Align to top */
         }
 
         .about-image {
@@ -478,8 +481,8 @@
         }
 
         .about-text {
-            flex: 0 0 60%;
-            /* Reduced from 70% to compensate for larger image */
+            flex: 1;
+            /* Takes remaining space */
             order: 1;
             /* Ensure text comes first (left side) */
             padding-right: 2rem;
@@ -1110,6 +1113,27 @@
         @media (max-width: 1200px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bio-section {
+                flex-wrap: wrap;
+                /* Allow wrapping on smaller screens */
+            }
+
+            .about-image {
+                margin: 2rem auto;
+                /* Center image on mobile */
+                width: 100%;
+                max-width: 450px;
+                /* Reduce size for tablets/mobile */
+                height: 500px;
+                order: 1;
+                /* Move image to top on mobile if desired, or keep 2 for bottom */
+            }
+
+            .about-text {
+                flex: 0 0 100%;
+                /* Full width text */
             }
         }
 
