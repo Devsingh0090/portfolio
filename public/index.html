@@ -31,12 +31,35 @@
             scroll-behavior: smooth;
         }
 
+        /* Performance optimizations */
+        *,
+        *::before,
+        *::after {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hardware acceleration for animations */
+        .hero,
+        .hero::before,
+        .btn,
+        .social-link,
+        .project-card,
+        .certificate-card,
+        .skill-item,
+        .timeline-content {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #000000, #111111);
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-overflow-scrolling: touch;
         }
 
         h1,
